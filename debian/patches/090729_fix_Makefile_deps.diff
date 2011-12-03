@@ -1,0 +1,22 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 090729_fix_Makefile_deps.dpatch by Lucas Nussbaum <lucas@lucas-nussbaum.net>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: In some cases, during 'make install', ruby1.9 will be removed
+## DP: because make will detect that one of the INSNS targets need to
+## DP: be regenerated.
+## DP: We add a dependency between do-install-nodoc and $(PROGRAM) to
+## DP: rebuild ruby1.9 if it was removed.
+
+@DPATCH@
+--- a/common.mk
++++ b/common.mk
+@@ -238,7 +238,7 @@ post-install-all:: post-install-local po
+ 
+ install-nodoc: pre-install-nodoc do-install-nodoc post-install-nodoc
+ pre-install-nodoc:: pre-install-local pre-install-ext
+-do-install-nodoc: $(PREP)
++do-install-nodoc: $(PREP) $(PROGRAM)
+ 	$(INSTRUBY) --make="$(MAKE)" $(INSTRUBY_ARGS) --mantype="$(MANTYPE)"
+ post-install-nodoc:: post-install-local post-install-ext
+ 
