@@ -1,8 +1,12 @@
-ruby1.9.1 (1.9.3.0-1ubuntu1) precise; urgency=low
+ruby1.9.1 (1.9.3.0-1ubuntu1) lucid; urgency=low
 
+  [ Matthias Klose ]
   * Don't run the tests on armhf for a first build.
 
- -- Matthias Klose <doko@ubuntu.com>  Sat, 03 Dec 2011 03:07:55 +0100
+  [ Brandon Philips ]
+  * Backport to Lucid
+
+ -- Brandon Philips <brandon.philips@rackspace.com>  Wed, 04 Jan 2012 19:26:46 +0000
 
 ruby1.9.1 (1.9.3.0-1) unstable; urgency=low
 
